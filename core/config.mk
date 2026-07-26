@@ -498,6 +498,12 @@ endif
 # See envsetup.mk for a description of SCAN_EXCLUDE_DIRS
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
+ifeq ($(EDITH_BUILD),)
+ifneq ($(filter edith_%,$(TARGET_PRODUCT)),)
+EDITH_BUILD := $(patsubst edith_%,%,$(TARGET_PRODUCT))
+endif
+endif
+
 ifneq ($(EDITH_BUILD),)
 include vendor/edith/config/BoardConfigEdith.mk
 endif

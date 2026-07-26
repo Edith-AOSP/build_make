@@ -25,8 +25,8 @@ PRODUCT_PACKAGES += \
     Browser2 \
     Calendar \
     Camera2 \
-    Contacts \
-    DeskClock \
+    # Contacts \
+    # DeskClock \
     Gallery2 \
     Music \
     preinstalled-packages-platform-handheld-product.xml \

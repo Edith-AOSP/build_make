@@ -464,6 +464,9 @@ function _lunch_meat()
         return 1
     fi
     export TARGET_PRODUCT=$(_get_build_var_cached TARGET_PRODUCT)
+    if (echo -n "$TARGET_PRODUCT" | grep -q -e "^edith_") ; then
+        export EDITH_BUILD=$(echo -n "$TARGET_PRODUCT" | sed -e 's/^edith_//g')
+    fi
     export TARGET_BUILD_VARIANT=$(_get_build_var_cached TARGET_BUILD_VARIANT)
     export TARGET_RELEASE=$release
     # Note this is the string "release", not the value of the variable.
